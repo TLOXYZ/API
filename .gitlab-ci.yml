@@ -1,0 +1,7 @@
+pages:
+  stage: deploy
+  script:
+  - rm -rf /var/www/site/api/*
+  - cp -r * /var/www/site/api
+  only:
+  - master
