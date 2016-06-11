@@ -7,15 +7,15 @@ if( !isset( $_GET['host'] ) ){
 
 $error_message = '';
 
-if( filter_var($_GET['host'], FILTER_FLAG_IPV4) ){
+if( filter_var($_GET['host'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) ){
 	$type = 'ipv4';
 	$asn = geoip_asnum_by_name( $_GET['host'] );
-	$domain = geoip_domain_by_name( $_GET['host'] );
-} elseif ( filter_var($_GET['host'], FILTER_FLAG_IPV6) ) {
+	$domain = gethostbyaddr( $_GET['host'] );
+} elseif ( filter_var($_GET['host'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ) {
 	$type = 'ipv6';
 	$asn = false;
 	$error_message = ' Cannot use IPv6 at this time.';
-	$domain = geoip_domain_by_name( $_GET['host'] );
+	$domain = gethostbyaddr( $_GET['host'] );
 } else {
 	$_GET['host'] = gethostbyname( $_GET['host'] );
 	$type = 'domain';
