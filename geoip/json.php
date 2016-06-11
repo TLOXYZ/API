@@ -9,13 +9,13 @@ $error_message = '';
 
 if( filter_var($_GET['host'], FILTER_VALIDATE_IP) ){
 	$type = 'ip';
-	$asn = geoip_asnum_by_name_v6( $_GET['host'] );
+	$asn = geoip_asnum_by_name( $_GET['host'] );
 	$domain = geoip_domain_by_name( $_GET['host'] );
 } else {
 	$_GET['host'] = gethostbyname( $_GET['host'] );
 	$type = 'domain';
 	if( filter_var($_GET['host'], FILTER_VALIDATE_IP) ){
-		$asn = geoip_asnum_by_name_v6( $_GET['host'] );
+		$asn = geoip_asnum_by_name( $_GET['host'] );
 		$domain = geoip_domain_by_name( $_GET['host'] );
 	} else {
 		$asn = false;
