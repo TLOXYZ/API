@@ -1,7 +1,7 @@
 pages:
   stage: deploy
   script:
-  - 'if find . -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"; then false; else echo "No syntax errors"; fi'
+  - 'if find . -type f -name "*.php" -exec nice php -l {} \; | grep -v "No syntax errors"; then false; else echo "No syntax errors"; fi'
   - mkdir -p /var/www/site/api
   - git --work-tree=/var/www/site/api checkout -f
   only:
