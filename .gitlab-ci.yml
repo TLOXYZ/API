@@ -1,6 +1,7 @@
 pages:
   stage: deploy
   script:
+  - mkdir -p /var/www/site/api
   - git --work-tree=/var/www/site/api checkout -f
   only:
   - master
