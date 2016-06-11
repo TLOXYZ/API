@@ -16,15 +16,16 @@ if( $geoip_data === false ) {
 		'status' => 'error',
 		'description' => 'Address cannot be found in the database.',
 		'type' => $type,
+		'ip' => $_GET['host'],
 	];
 } else {
 	$data = [
-		'status' => 'error',
+		'status' => 'success',
 		'description' => 'Address successfully found.',
+		'record' => geoip_record_by_name( $_GET['host'] ),
+		'domain' => geoip_domain_by_name( $_GET['host'] ),
+		'ip' => $_GET['host'],
 	];
-	$data['record'] = geoip_record_by_name( $_GET['host'] );
-	$domain = geoip_domain_by_name( $_GET['host'] );
-	
 }
 
 echo json_encode( $data );
