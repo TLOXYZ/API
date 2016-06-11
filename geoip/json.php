@@ -7,9 +7,14 @@ if( !isset( $_GET['host'] ) ){
 
 $error_message = '';
 
-if( filter_var($_GET['host'], FILTER_VALIDATE_IP) ){
-	$type = 'ip';
+if( filter_var($_GET['host'], FILTER_FLAG_IPV4) ){
+	$type = 'ipv4';
 	$asn = geoip_asnum_by_name( $_GET['host'] );
+	$domain = geoip_domain_by_name( $_GET['host'] );
+} elseif ( filter_var($_GET['host'], FILTER_FLAG_IPV6) ) {
+	$type = 'ipv6';
+	$asn = false;
+	$error_message = ' Cannot use IPv6 at this time.';
 	$domain = geoip_domain_by_name( $_GET['host'] );
 } else {
 	$_GET['host'] = gethostbyname( $_GET['host'] );
@@ -29,11 +34,12 @@ if( $asn ) {
 		'status' => 'success',
 		'description' => 'Address successfully found.',
 		'type' => $type,
-		'record' => geoip_record_by_name_v6( $_GET['host'] ),
+		'record' => geoip_record_by_name( $_GET['host'] ),
 		'domain' => $domain,
 		'asn' => $asn,
 		'ip' => $_GET['host'],
 	];
+	
 } else {
 	$data = [
 		'status' => 'error',
