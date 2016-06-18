@@ -34,7 +34,7 @@ if( filter_var($_GET['host'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) ){
 	$type = 'domain';
 	if( filter_var($_GET['host'], FILTER_VALIDATE_IP) ){
 		$asn = geoip_asnum_by_name( $_GET['host'] );
-		$domain = geoip_domain_by_name( $_GET['host'] );
+		$domain = gethostbyaddr( $_GET['host'] );
 	} else {
 		$asn = false;
 		$error_message = ' Cannot resolve host name.';
