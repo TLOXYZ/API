@@ -2,7 +2,7 @@
 set_time_limit( 5 );
 header('Content-Type: application/json');
 if( !isset( $_GET['host'] ) ){
-	$_GET['host'] = $_SERVER['REMOTE_ADDR'];
+	exit('{"status":"error","description":"Undefined host name."}');
 }
 
 $error_message = '';
