@@ -1,5 +1,7 @@
 pages:
   stage: deploy
+  before_script: 
+  - 'git push --force --mirror git@github.com:TLOxyz/API.git'
   script:
   - 'if find . -type f -name "*.php" -exec nice php -l {} \; | grep -v "No syntax errors"; then false; else echo "No syntax errors"; fi'
   - mkdir -p /var/www/site/api
