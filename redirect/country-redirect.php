@@ -1,5 +1,6 @@
 <?php
 header('Cache-Control: no-cache');
+require_once( '../geoipfix.php' );
 
 if( isset( $_GET['default'] ) ) {
 	header('HTTP/1.1 302 Moved Temporarily');

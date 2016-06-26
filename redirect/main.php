@@ -1,5 +1,6 @@
 <?php
 header('Cache-Control: no-cache');
+require_once( '../geoipfix.php' );
 $data = '';
 $data = json_decode(base64_decode($_GET['data']), true);
 function redirect($url){
