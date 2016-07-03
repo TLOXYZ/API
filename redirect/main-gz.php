@@ -60,6 +60,7 @@ HTML;
 		header('HTTP/1.1 302 Moved Temporarily');
 		header('Location: '.$url);
 	}
+	exit;
 }
 if( isset($data[ 'default' ]) ) {
 	if( isset( $data[ $_SERVER['GEOIP_COUNTRY_CODE'] ] ) ) {

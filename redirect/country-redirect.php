@@ -8,7 +8,7 @@ if( isset( $_GET['default'] ) ) {
 		header('Location: '.$_GET[ $_SERVER['GEOIP_COUNTRY_CODE'] ]);
 	}
 	else {
-		header('Location: '.$_GET[ $_GET['default'] ]);
+		header('Location: '.$_GET['default']);
 	}
 }
 else {
