@@ -1,9 +1,7 @@
 <?php
 header('Cache-Control: no-cache');
-header('Content-type: application/json');
+header('Content-type: text/plain');
 require_once( '../geoipfix.php' );
-
-$data['country'] = $_SERVER['GEOIP_COUNTRY_CODE'];
 
 if( isset( $_SERVER["REAL_IP"] ) ){
 	$data['ip'] = $_SERVER["HTTP_CLIENT_IP"];// For the Beijing datacenter
@@ -13,4 +11,4 @@ if( isset( $_SERVER["REAL_IP"] ) ){
 	$data['ip'] = $_SERVER['REMOTE_ADDR'];
 }
 
-echo json_encode($data);
+echo $data['ip'];
