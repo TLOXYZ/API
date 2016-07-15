@@ -4,12 +4,12 @@ apiTLO
 
 apiTLO provide some useful API for free, for this time, we have:
 
-+ [Redirect API](redirect-api)
-+ [QR Code](qr-code)
-+ [My IP](my-ip)
++ [Redirect API](https://git.tlo.xyz/TLOxyz/API/wikis/redirect-api)
++ [QR Code](https://git.tlo.xyz/TLOxyz/API/wikis/qr-code)
++ [My IP](https://git.tlo.xyz/TLOxyz/API/wikis/my-ip)
 
 Network:
 
-+ [CDN](cdn)
++ [CDN](https://git.tlo.xyz/TLOxyz/API/wikis/cdn)
 
 If you want us to add other features, pleace [create a new issue here](https://git.tlo.xyz/TLOxyz/API/issues).
