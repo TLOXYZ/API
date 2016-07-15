@@ -1,6 +1,7 @@
 <?php
 header('Cache-Control: no-cache');
 header('Content-type: application/json');
+header('Access-Control-Allow-Origin: *');
 require_once( '../geoipfix.php' );
 
 $data['country'] = $_SERVER['GEOIP_COUNTRY_CODE'];
@@ -13,4 +14,4 @@ if( isset( $_SERVER["REAL_IP"] ) ){
 	$data['ip'] = $_SERVER['REMOTE_ADDR'];
 }
 
-echo $_GET['callback'],"([",json_encode($data),"])";
+echo $_GET['callback'],"(",json_encode($data),")";
