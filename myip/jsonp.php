@@ -1,7 +1,10 @@
 <?php
 header('Cache-Control: no-cache');
-header('Content-type: application/json');
-header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin :*');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Headers: X-Tlo-Hostname');
 require_once( '../geoipfix.php' );
 
 $data['country'] = $_SERVER['GEOIP_COUNTRY_CODE'];
